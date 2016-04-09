@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: rGQu+qstscpF8wAGZMlpKCvn1fAIMM+iB5u+P531YnMEXcExsefCrh0wlaX407oq+C9bO//Kq8GLMRrBT6sIntcaSnIiS/FBNBcinFkCcGaZH1O68QPkyDmTALAC3YBhayZ0bFSJfCHgN4wzCUoS8PNZSQBqn+99y+2dMnBJ/4qzF2h6jw+EtVoT+MFRcmlzt6V8odTz/pZjntpyy2AnHN/waRRKSindqFgcKX1vKkNxBDG79GgXKDMLABZx/lblVSkjrYAoUZpIUZTaZM13aZnzTMK+qx9LSu6Qssjgb8aTHeJT8940CRC4xVMT5fyHFHent+w96T4YMyTolTtw3bNxHya9z9ogqBSD1yoH4yGhcsulAgelN+x/ipWM0gkNogXOhWw0cgO5MoIMsebL0DMvhMeXZ77Sr43nM2g11jZ76UawrEzU+8dwEO/zRXNsoOkDZZUPpg/sZFXqUjGHb7WH1tD9+4pW8dyL9rsPbqhScSwPrDp8sokmNmOCou6O/ij0CZf/qMZ+eImV5DeSafG5b9HMIUQCcWblVpPLM8CHAezZeWL87QIHcrUrTvv+sdTF/RTmpZPcbtpmEGUqiOrwJEuLB2pBiBFMdKPSNPpaiowBeDU6aXsYTqvuogjFmqMU1uy4dD4phH6s9tSjs1yF6fCiDea8WHrqqQcK36g=
+  app: glacial-meadow-80102
+  on:
+    repo: mike-north/peepchat2-ui
